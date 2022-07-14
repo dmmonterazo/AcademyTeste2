@@ -7,9 +7,12 @@
 
 import UIKit
 
-class FeaturedViewController: UIViewController, UICollectionViewDataSource {
+class FeaturedViewController: UIViewController {
     
+    let popularMovies = Movie.popularMovies()
+    let nowPlayingMovies = Movie.nowPlayingMovies()
     
+
     @IBOutlet var popularCollectionView: UICollectionView!
     @IBOutlet var nowPlayingCollectionView: UICollectionView!
     
@@ -18,20 +21,18 @@ class FeaturedViewController: UIViewController, UICollectionViewDataSource {
         // Do any additional setup after loading the view.
         
         popularCollectionView.dataSource = self
-    }
-   
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as? PopularCollectionViewCell {
+        nowPlayingCollectionView.dataSource = self
         
-        cell.titleLabel.text = "Título do Filme"
-        cell.image.image = UIImage()
-        
-        return cell
+        popularCollectionView.delegate = self
+        nowPlayingCollectionView.delegate = self
     }
- return UICollectionViewCell()
-}}
+    override func prepare(for segue: UIStoryboardSegue,
+        sender: Any?) {
+        //passar filme adiante
+        if let destination = segue.destination as? DetailsViewController{
+            let movie = sender as? Movie
+            destination.movie = movie
+        }
+        }
+    }
 
