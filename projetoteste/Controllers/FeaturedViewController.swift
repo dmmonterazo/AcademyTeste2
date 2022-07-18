@@ -9,8 +9,9 @@ import UIKit
 
 class FeaturedViewController: UIViewController {
     
-    let popularMovies = Movie.popularMovies()
-    let nowPlayingMovies = Movie.nowPlayingMovies()
+    var popularMovies : [Movie] = [] //Recebe uma lista vazia do tipo movie que será preenchida pela API
+    var topRatedMovies : [Movie] = [] //Recebe uma lista vazia do tipo movie que será preenchida pela API
+    let upcomingMovies = Movie.upcomingMovies() //aqui já temos a informação no computador mas estamos baixando novas inormações
     
 
     @IBOutlet var popularCollectionView: UICollectionView!
@@ -25,6 +26,17 @@ class FeaturedViewController: UIViewController {
         
         popularCollectionView.delegate = self
         nowPlayingCollectionView.delegate = self
+        
+        Task {
+            self.popularMovies = await Movie.popularMoviesAPI()
+        self.popularCollectionView.reloadData()
+        }
+        
+        Task {
+            self.topRatedMovies = await Movie.topRatedAPI()
+            self.nowPlayingCollectionView.reloadData ()
+            
+        }
     }
     override func prepare(for segue: UIStoryboardSegue,
         sender: Any?) {

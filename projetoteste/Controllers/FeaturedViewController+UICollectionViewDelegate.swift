@@ -18,8 +18,8 @@ extension FeaturedViewController: UICollectionViewDelegate {
             print(popularMovies[indexPath.item])
             movie = popularMovies[indexPath.item]
                   } else {
-                      print(nowPlayingMovies[indexPath.item])
-                      movie = nowPlayingMovies[indexPath.item]
+                      print(topRatedMovies[indexPath.item])
+                      movie = topRatedMovies[indexPath.item]
         }
         self.performSegue(withIdentifier: "detailsSegue",
             sender: movie)

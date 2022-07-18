@@ -121,7 +121,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="9SV-rb-gOq" userLabel="NowPlayingStack">
                                                                         <rect key="frame" x="16" y="0.0" width="382" height="50"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Now Playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAQ-qk-C01">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Top Rated" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAQ-qk-C01">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="312.5" height="50"/>
                                                                                 <color key="backgroundColor" systemColor="linkColor"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
@@ -265,7 +265,7 @@
                                                             <inset key="sectionInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="S8A-fG-twZ">
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="upcomingCell" id="S8A-fG-twZ" customClass="UpcomingCollectionViewCell" customModule="projetoteste" customModuleProvider="target">
                                                                 <rect key="frame" x="8" y="9.5" width="200" height="299"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RHQ-fp-jA3">
@@ -308,6 +308,11 @@
                                                                         <constraint firstAttribute="bottom" secondItem="3Ep-Hj-z1O" secondAttribute="bottom" constant="4" id="woG-pM-pIS"/>
                                                                     </constraints>
                                                                 </collectionViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="dateLabel" destination="N7u-SR-gyj" id="bP7-VZ-JDq"/>
+                                                                    <outlet property="imageView" destination="A4V-wM-ZbB" id="8mh-aD-efp"/>
+                                                                    <outlet property="titleLabel" destination="q1j-zO-T9N" id="kyl-Ja-maX"/>
+                                                                </connections>
                                                             </collectionViewCell>
                                                         </cells>
                                                     </collectionView>
@@ -346,7 +351,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="62"/>
+            <point key="canvasLocation" x="1896" y="61"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="KCH-4m-J01">
@@ -523,7 +528,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SkJ-jn-snJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2721.739130434783" y="62.611607142857139"/>
+            <point key="canvasLocation" x="2662.3188405797105" y="62.611607142857139"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="VFZ-Vb-Nzk">

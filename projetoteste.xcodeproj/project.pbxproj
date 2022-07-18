@@ -27,6 +27,7 @@
 		B23599B02881E7DB002462ED /* TMDB-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B23599AF2881E7DB002462ED /* TMDB-Info.plist */; };
 		B23599B22881EC51002462ED /* Movie+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23599B12881EC51002462ED /* Movie+API.swift */; };
 		B23599B42881F8CC002462ED /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23599B32881F8CC002462ED /* MovieResponse.swift */; };
+		B25298882885F3E400220D23 /* UpcomingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25298872885F3E400220D23 /* UpcomingCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		B23599AF2881E7DB002462ED /* TMDB-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TMDB-Info.plist"; sourceTree = "<group>"; };
 		B23599B12881EC51002462ED /* Movie+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Movie+API.swift"; sourceTree = "<group>"; };
 		B23599B32881F8CC002462ED /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
+		B25298872885F3E400220D23 /* UpcomingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			children = (
 				B207BB922873891200B2DE2C /* Main.storyboard */,
 				B207BB972873891300B2DE2C /* LaunchScreen.storyboard */,
+				B25298872885F3E400220D23 /* UpcomingCollectionViewCell.swift */,
 				B207BBE0287C980700B2DE2C /* PopularCollectionViewCell.swift */,
 				B207BBE2287C984300B2DE2C /* NowPlayingCollectionViewCell.swift */,
 			);
@@ -215,6 +218,7 @@
 			files = (
 				B2359994287DF4E6002462ED /* Movie+TrendingToday.swift in Sources */,
 				B207BBE3287C984300B2DE2C /* NowPlayingCollectionViewCell.swift in Sources */,
+				B25298882885F3E400220D23 /* UpcomingCollectionViewCell.swift in Sources */,
 				B23599B22881EC51002462ED /* Movie+API.swift in Sources */,
 				B207BBE1287C980700B2DE2C /* PopularCollectionViewCell.swift in Sources */,
 				B2359996287DF4E6002462ED /* Movie+TrendingThisWeek.swift in Sources */,

@@ -18,13 +18,23 @@ extension FeaturedViewController: UICollectionViewDataSource {
                                                                     NowPlayingCollectionViewCell.cellidentifier, for: indexPath) as?
             NowPlayingCollectionViewCell {
             
-            let nowPlayingMovie = Movie.nowPlayingMovies()
-            let titulo: String = nowPlayingMovie[indexPath.item].title
+            let movie = topRatedMovies[indexPath.item]
             
-            cell.setup(title: titulo,
-                       year:"\(Movie.nowPlayingMovies()[indexPath.item].releaseDate.prefix(4))" ,
-                       image: UIImage(named: nowPlayingMovies[indexPath.item].poster) ??
-                       UIImage())
+            cell.setup(title: movie.title,
+                       year:"\(movie.releaseDate.prefix(4))" ,
+                       image: UIImage()
+            )
+            
+            Task {
+                let imageData = await Movie.downloadImageData(withPath: movie.posterPath)
+                let image = UIImage(data: imageData) ?? UIImage()
+                
+                cell.setup(title: movie.title,
+                           year:"\(movie.releaseDate.prefix(4))",
+                           image: image)
+                
+                
+            }
                                      
             return cell
         }
@@ -36,14 +46,21 @@ extension FeaturedViewController: UICollectionViewDataSource {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as? PopularCollectionViewCell {
             
             cell.setup(title: popularMovies[indexPath.item].title,
-                       image: UIImage(named:
-                                        popularMovies[indexPath.item].backdrop) ?? UIImage())
+                       image: UIImage())
+            let movie = popularMovies[indexPath.item]
             
-            cell.titleLabel.text = popularMovies[indexPath.item].title
-            cell.image.image = UIImage(named: popularMovies[indexPath.item].backdrop)
-            return cell
+            Task {
+                let imageData = await Movie.downloadImageData(withPath:
+                                                                movie.backdropPath)
+                let imagem = UIImage (data: imageData) ?? UIImage()
+                
+                cell.setup(title: movie.title, image: imagem)
         }
+            
+            return cell
+    }
         return UICollectionViewCell()
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
