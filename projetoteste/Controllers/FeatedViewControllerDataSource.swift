@@ -25,6 +25,7 @@ extension FeaturedViewController: UICollectionViewDataSource {
                        image: UIImage()
             )
             
+            
             Task {
                 let imageData = await Movie.downloadImageData(withPath: movie.posterPath)
                 let image = UIImage(data: imageData) ?? UIImage()
@@ -35,7 +36,7 @@ extension FeaturedViewController: UICollectionViewDataSource {
                 
                 
             }
-                                     
+            
             return cell
         }
         return NowPlayingCollectionViewCell()
@@ -55,20 +56,43 @@ extension FeaturedViewController: UICollectionViewDataSource {
                 let imagem = UIImage (data: imageData) ?? UIImage()
                 
                 cell.setup(title: movie.title, image: imagem)
-        }
+            }
             
             return cell
-    }
+        }
         return UICollectionViewCell()
         
     }
+    
+    fileprivate func upcomingCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "upcomingCell", for: indexPath) as? UpcomingCollectionViewCell {
+            let movie = upcomingMovies [indexPath.item] // indexPath = índice do filme
+            cell.setup(title: upcomingMovies[indexPath.item].title, year: "\(movie.releaseDate.prefix(4))",
+                       image: UIImage())
+            Task {
+                let imageData = await Movie.downloadImageData(withPath:
+                                                                movie.posterPath) //poster é o formato da API que queremos, não backdrop
+                let imagem = UIImage (data: imageData) ?? UIImage()
+                
+                cell.setup(title: movie.title, year: "\(movie.releaseDate.prefix(4))", image: imagem) //a informação do releasedate tem no site da API
+            }
+            
+            return cell
+        }
+        return UICollectionViewCell()
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == popularCollectionView {
             return makePopularCell(collectionView, indexPath)
         }
-        else {
+        else if collectionView == nowPlayingCollectionView {
             return makeNowPlayingCell(indexPath:indexPath)
+        
+        }
+        else {
+            return upcomingCell(collectionView, indexPath)
         }
     }
 }

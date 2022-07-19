@@ -113,8 +113,8 @@
 				B207BB922873891200B2DE2C /* Main.storyboard */,
 				B207BB972873891300B2DE2C /* LaunchScreen.storyboard */,
 				B25298872885F3E400220D23 /* UpcomingCollectionViewCell.swift */,
-				B207BBE0287C980700B2DE2C /* PopularCollectionViewCell.swift */,
 				B207BBE2287C984300B2DE2C /* NowPlayingCollectionViewCell.swift */,
+				B207BBE0287C980700B2DE2C /* PopularCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
